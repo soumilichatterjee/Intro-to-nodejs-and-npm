@@ -4,6 +4,7 @@ const path = require("path");
 const url = require("url");
 const slugify = require("slugify");
 const replaceTemplate = require("./modules/replaceTemplate");
+const port = process.env.port || 3000
 
 const tempOverview = fs.readFileSync(
   `${__dirname}/templates/template-overview.html`,
@@ -65,7 +66,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(8000, "127.0.0.1", () => {
+server.listen(port, "127.0.0.1", () => {
   console.log("Listening to requests on port 8000");
 });
 
